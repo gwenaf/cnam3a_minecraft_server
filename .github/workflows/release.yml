@@ -2,7 +2,7 @@ name: Build resource pack
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths: ["assets/**", "pack.mcmeta", "pack.png"]
   workflow_dispatch:
 
