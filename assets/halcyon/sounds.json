@@ -1,0 +1,62 @@
+{
+  "jingle.halcyon": {
+    "sounds": [
+      {
+        "name": "halcyon:halcyon",
+        "stream": false
+      }
+    ],
+    "subtitle": "HALCYON: Halcyon"
+  },
+  "jingle.ananke": {
+    "sounds": [
+      {
+        "name": "halcyon:ananke",
+        "stream": false
+      }
+    ],
+    "subtitle": "HALCYON: Ananke"
+  },
+  "jingle.cynosure": {
+    "sounds": [
+      {
+        "name": "halcyon:cynosure",
+        "stream": false
+      }
+    ],
+    "subtitle": "HALCYON: Cynosure"
+  },
+  "jingle.ouroboros": {
+    "sounds": [
+      {
+        "name": "halcyon:ouroboros",
+        "stream": false
+      }
+    ],
+    "subtitle": "HALCYON: Ouroboros"
+  },
+  "idle.halcyon": {
+    "sounds": [
+      {
+        "name": "halcyon:halcyon_idle",
+        "stream": false
+      }
+    ]
+  },
+  "idle.ananke": {
+    "sounds": [
+      {
+        "name": "halcyon:ananke_idle",
+        "stream": false
+      }
+    ]
+  },
+  "idle.cynosure": {
+    "sounds": [
+      {
+        "name": "halcyon:cynosure_idle",
+        "stream": false
+      }
+    ]
+  }
+}

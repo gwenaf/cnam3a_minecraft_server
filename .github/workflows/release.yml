@@ -1,0 +1,40 @@
+name: Build resource pack
+
+on:
+  push:
+    branches: [main]
+    paths: ["assets/**", "pack.mcmeta", "pack.png"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check JSON files
+        run: find . -name "*.json" -o -name "*.mcmeta" | grep -v "^./.github" | xargs -I{} python3 -m json.tool {} > /dev/null
+
+      - name: Zip the pack
+        run: |
+          zip -r -X cnam3a_minecraft_server.zip pack.mcmeta pack.png assets
+          echo "SHA1=$(sha1sum cnam3a_minecraft_server.zip | cut -d' ' -f1)" >> "$GITHUB_ENV"
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: cnam3a_minecraft_server build ${{ github.run_number }}
+          make_latest: true
+          files: cnam3a_minecraft_server.zip
+          body: |
+            SHA-1: `${{ env.SHA1 }}`
+
+            server.properties:
+            ```
+            resource-pack=https://github.com/${{ github.repository }}/releases/latest/download/cnam3a_minecraft_server.zip
+            resource-pack-sha1=${{ env.SHA1 }}
+            ```
